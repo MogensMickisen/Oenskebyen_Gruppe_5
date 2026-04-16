@@ -40,4 +40,9 @@ public class WishlistRepository {
         String sql = "INSERT INTO wishes (wishlist_id, title, price, url, is_reserved) VALUES (?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql, wish.getWishlistId(), wish.getTitle(), wish.getPrice(), wish.getUrl(), false);
     }
+
+    public void deleteWish(int id) {
+        String sql = "DELETE FROM wishes WHERE wish_id = ?";
+        jdbcTemplate.update(sql, id);
+    }
 }

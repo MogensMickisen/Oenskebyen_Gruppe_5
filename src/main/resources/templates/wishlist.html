@@ -8,13 +8,13 @@
 <body class="bg-light">
 <div class="container mt-4">
     <a th:href="@{/dashboard}" class="btn btn-secondary mb-3">← Tilbage</a>
-    
+
     <div class="card mb-4">
         <div class="card-body">
             <h2 th:text="${wishlist.title}">Ønskeliste Navn</h2>
             <p th:text="${wishlist.description}">Beskrivelse</p>
             <div class="alert alert-info py-2">
-                <strong>Del link:</strong> <code>http://app.azure.com/share/[[${wishlist.wishlistId}]]</code>
+                <strong>Del link:</strong> <code>http://localhost:8080/share/[[${wishlist.wishlistId}]]</code>
             </div>
         </div>
     </div>
@@ -38,29 +38,29 @@
     <h4>Ønsker på listen</h4>
     <table class="table table-striped bg-white shadow-sm">
         <thead>
-            <tr>
-                <th>Ønske</th>
-                <th>Pris</th>
-                <th>Link</th>
-                <th>Status</th>
-                <th>Handling</th>
-            </tr>
+        <tr>
+            <th>Ønske</th>
+            <th>Pris</th>
+            <th>Link</th>
+            <th>Status</th>
+            <th>Handling</th>
+        </tr>
         </thead>
         <tbody>
-            <tr th:each="wish : ${wishes}">
-                <td th:text="${wish.title}">Vare</td>
-                <td th:text="${wish.price} + ' kr.'">0 kr.</td>
-                <td><a th:if="${wish.url}" th:href="${wish.url}" target="_blank">Se vare</a></td>
-                <td>
-                    <span th:if="${wish.isReserved}" class="badge bg-warning text-dark">Reserveret</span>
-                    <span th:unless="${wish.isReserved}" class="badge bg-success">Ledig</span>
-                </td>
-                <td>
-                    <form th:action="@{/wish/delete/{id}(id=${wish.wish_id})}" method="post">
-                        <button class="btn btn-danger btn-sm">Slet</button>
-                    </form>
-                </td>
-            </tr>
+        <tr th:each="wish : ${wishes}">
+            <td th:text="${wish.title}">Vare</td>
+            <td th:text="${wish.price} + ' kr.'">0 kr.</td>
+            <td><a th:if="${wish.url}" th:href="${wish.url}" target="_blank">Se vare</a></td>
+            <td>
+                <span th:if="${wish.isReserved}" class="badge bg-warning text-dark">Reserveret</span>
+                <span th:unless="${wish.isReserved}" class="badge bg-success">Ledig</span>
+            </td>
+            <td>
+                <form th:action="@{/wish/delete/{id}(id=${wish.wishId})}" method="post">
+                    <button class="btn btn-danger btn-sm">Slet</button>
+                </form>
+            </td>
+        </tr>
         </tbody>
     </table>
 </div>

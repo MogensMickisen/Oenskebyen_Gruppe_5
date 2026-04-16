@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Opret Ønskeseddel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3 class="card-title mb-4">Opret ny ønskeseddel</h3>
+
+                    <form th:action="@{/create-wishlist}" method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Titel på listen</label>
+                            <input type="text" name="title" class="form-control"
+                                   placeholder=" f.eks. Min Fødselsdag" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Beskrivelse (valgfri)</label>
+                            <textarea name="description" class="form-control" rows="3"
+                                      placeholder="Skriv lidt om hvad listen er til..."></textarea>
+                        </div>
+
+                        <div class="d-flex justify-content-between pt-3">
+                            <a th:href="@{/dashboard}" class="btn btn-secondary">Annuller</a>
+                            <button type="submit" class="btn btn-success px-4">Gem liste</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
