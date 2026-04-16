@@ -1,0 +1,42 @@
+Folder PATH listing for volume Data
+Volume serial number is EEF3-3B16
+E:.
+|   structure.txt
+|   
++---.idea
+|       .gitignore
+|       misc.xml
+|       modules.xml
+|       Oenskebyen_Gruppe_5.iml
+|       vcs.xml
+|       
+\---src
+    \---main
+        +---java
+        |   \---com
+        |       \---example
+        |           \---wishlist
+        |               |   WishlistApplication.java
+        |               |   
+        |               +---controller
+        |               |       WishlistController.java
+        |               |       
+        |               +---model
+        |               |       User.java
+        |               |       Wish.java
+        |               |       Wishlist.java
+        |               |       
+        |               \---repository
+        |                       WishlistRepository.java
+        |                       
+        \---resources
+            |   application.properties
+            |   data.sql
+            |   schema.sql
+            |   
+            \---templates
+                    dashboard.html
+                    login.html
+                    shared-wishlist.html
+                    wishlist.html
+                    
