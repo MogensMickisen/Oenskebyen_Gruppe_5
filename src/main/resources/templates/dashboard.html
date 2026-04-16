@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mine Ønskesedler</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark mb-4">
+    <div class="container">
+        <span class="navbar-brand">Mine Ønskesedler</span>
+        <a th:href="@{/logout}" class="btn btn-outline-light btn-sm">Log ud</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Velkommen, <span th:text="${user.username}">Bruger</span></h2>
+        <a th:href="@{/create-wishlist}" class="btn btn-success">+ Opret ny liste</a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-3" th:each="list : ${wishlists}">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${list.title}">Titel</h5>
+                    <p class="card-text text-muted" th:text="${list.description}">Beskrivelse...</p>
+                    <a th:href="@{/wishlist/{id}(id=${list.wishlistId})}" class="btn btn-primary">Se og rediger</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
